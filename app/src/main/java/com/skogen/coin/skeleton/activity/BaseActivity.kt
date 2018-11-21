@@ -77,7 +77,7 @@ abstract class BaseActivity<P : BasePresenter> : AppCompatActivity(), BaseView, 
      * @param tag         for new fragment
      */
     protected fun replaceFragment(@IdRes containerId: Int, fragment: BaseFragment<*, *>, tag: String?) {
-        fragmentManager.beginTransaction().replace(containerId, fragment, tag).commitAllowingStateLoss()
+        supportFragmentManager.beginTransaction().replace(containerId, fragment, tag).commitAllowingStateLoss()
     }
 
     /**
@@ -88,7 +88,7 @@ abstract class BaseActivity<P : BasePresenter> : AppCompatActivity(), BaseView, 
      * @param tag         for new fragment
      */
     protected fun addFragment(@IdRes containerId: Int, fragment: BaseFragment<*, *>, tag: String?) {
-        fragmentManager.beginTransaction().replace(containerId, fragment, tag).addToBackStack(null)
+        supportFragmentManager.beginTransaction().replace(containerId, fragment, tag).addToBackStack(null)
             .commitAllowingStateLoss()
     }
 

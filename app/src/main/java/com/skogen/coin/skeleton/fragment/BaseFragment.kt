@@ -1,13 +1,14 @@
 package com.skogen.coin.skeleton.fragment
 
+import android.app.PendingIntent.getActivity
 import android.os.Bundle
 import android.os.Build
 import android.content.Context
 
 import android.support.annotation.LayoutRes
 import android.support.annotation.IdRes
+import android.support.v4.app.Fragment
 
-import android.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -67,12 +68,12 @@ abstract class BaseFragment<A : BaseActivity<*>, P : BasePresenter> : Fragment()
         activity = getActivity() as A
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         presenter = createPresenter()
         return inflater?.inflate(layoutId, container, false)
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) = initViews(view)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) = initViews(view)
 
     /**
      * Replaces existing fragment with allowing state loss
@@ -82,7 +83,7 @@ abstract class BaseFragment<A : BaseActivity<*>, P : BasePresenter> : Fragment()
      * @param tag         for new fragment
      */
     protected fun replaceFragment(@IdRes containerId: Int, fragment: BaseFragment<*, *>, tag: String?) {
-        fragmentManager.beginTransaction().replace(containerId, fragment, tag).commitAllowingStateLoss()
+        fragmentManager?.beginTransaction()?.replace(containerId, fragment, tag)?.commitAllowingStateLoss()
     }
 
     /**
@@ -93,8 +94,8 @@ abstract class BaseFragment<A : BaseActivity<*>, P : BasePresenter> : Fragment()
      * @param tag         for new fragment
      */
     protected fun addFragment(@IdRes containerId: Int, fragment: BaseFragment<*, *>, tag: String?) {
-        fragmentManager.beginTransaction().replace(containerId, fragment, tag).addToBackStack(tag)
-            .commitAllowingStateLoss()
+        fragmentManager?.beginTransaction()?.replace(containerId, fragment, tag)?.addToBackStack(tag)
+            ?.commitAllowingStateLoss()
     }
 
     override fun showProgressView() = activity.showProgressView()

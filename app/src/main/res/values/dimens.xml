@@ -33,4 +33,5 @@
 
     <dimen name="logo_default_size">140dp</dimen>
     <dimen name="btn_default_radius">25dp</dimen>
+    <dimen name="avatar_size">104dp</dimen>
 </resources>

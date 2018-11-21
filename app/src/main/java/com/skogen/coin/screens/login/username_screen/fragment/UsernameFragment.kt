@@ -6,6 +6,7 @@ import android.text.TextWatcher
 import android.view.View
 import com.skogen.coin.R
 import com.skogen.coin.screens.login.LoginActivity
+import com.skogen.coin.screens.login.extrainfo_screen.fragment.ExtraInfoFragment
 import com.skogen.coin.screens.login.username_screen.fragment.presentation.presenter.UsernamePresenter
 import com.skogen.coin.screens.login.username_screen.fragment.presentation.view.UsernameView
 import com.skogen.coin.skeleton.fragment.BaseFragment
@@ -70,7 +71,7 @@ class UsernameFragment : BaseFragment<LoginActivity, UsernamePresenter>(), Usern
         })
 
         userNameBtn.setOnClickListener {
-            Timber.e(" Hi-> %s")
+            addFragment(R.id.loginContainer, ExtraInfoFragment.newInstance(), null)
         }
     }
 }
