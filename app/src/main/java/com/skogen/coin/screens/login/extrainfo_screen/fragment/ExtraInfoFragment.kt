@@ -22,12 +22,14 @@ import com.skogen.coin.App.Companion.context
 import com.skogen.coin.R
 import com.skogen.coin.R.id.extraInfoBtn
 import com.skogen.coin.R.id.extraInfoPin
+import com.skogen.coin.models.UserModel
 import com.skogen.coin.screens.login.LoginActivity
 import com.skogen.coin.screens.login.extrainfo_screen.fragment.presentation.presenter.ExtraInfoPresenter
 import com.skogen.coin.screens.login.extrainfo_screen.fragment.presentation.view.ExtraInfoView
 import com.skogen.coin.skeleton.fragment.BaseFragment
 import com.skogen.coin.utils.ImageUtil
 import com.skogen.coin.utils.Validator
+import com.vicpin.krealmextensions.queryFirst
 import kotlinx.android.synthetic.main.fragment_extra_info.*
 import timber.log.Timber
 
@@ -35,6 +37,7 @@ class ExtraInfoFragment : BaseFragment<LoginActivity, ExtraInfoPresenter>(), Ext
         View.OnClickListener {
 
     private var bitmapImage: Bitmap? = null
+    private var userModel: UserModel? = null
 
     override val layoutId: Int
         get() = R.layout.fragment_extra_info
@@ -57,6 +60,8 @@ class ExtraInfoFragment : BaseFragment<LoginActivity, ExtraInfoPresenter>(), Ext
     }
 
     override fun initViews(rootView: View?) {
+        userModel = UserModel().queryFirst()
+        extraInfoTvName.text = getString(R.string.extraInfoTvName, userModel?.name, userModel?.surname)
         initEt()
         extraInfoBtn.setOnClickListener(this)
         extraInfoCivAvatar.setOnClickListener(this)

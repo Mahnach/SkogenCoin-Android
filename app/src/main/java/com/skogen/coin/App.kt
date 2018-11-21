@@ -4,6 +4,8 @@ import android.app.Application
 import android.content.Context
 import android.content.ContextWrapper
 import com.pixplicity.easyprefs.library.Prefs
+import io.realm.Realm
+import io.realm.RealmConfiguration
 import timber.log.Timber
 
 class App : Application() {
@@ -18,6 +20,13 @@ class App : Application() {
             .setPrefsName(packageName)
             .setUseDefaultSharedPreference(true)
             .build()
+
+        Realm.init(this)
+        val config = RealmConfiguration.Builder()
+            .schemaVersion(1)
+            .deleteRealmIfMigrationNeeded()
+            .build()
+        Realm.setDefaultConfiguration(config)
 
         Timber.plant(Timber.DebugTree())
     }

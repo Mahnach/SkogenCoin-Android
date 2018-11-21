@@ -5,11 +5,15 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import com.skogen.coin.R
+import com.skogen.coin.models.UserModel
 import com.skogen.coin.screens.login.LoginActivity
 import com.skogen.coin.screens.login.extrainfo_screen.fragment.ExtraInfoFragment
 import com.skogen.coin.screens.login.username_screen.fragment.presentation.presenter.UsernamePresenter
 import com.skogen.coin.screens.login.username_screen.fragment.presentation.view.UsernameView
 import com.skogen.coin.skeleton.fragment.BaseFragment
+import com.vicpin.krealmextensions.create
+import com.vicpin.krealmextensions.createOrUpdate
+import com.vicpin.krealmextensions.save
 import kotlinx.android.synthetic.main.fragment_username.*
 import timber.log.Timber
 
@@ -71,6 +75,7 @@ class UsernameFragment : BaseFragment<LoginActivity, UsernamePresenter>(), Usern
         })
 
         userNameBtn.setOnClickListener {
+            UserModel(name = userNameEtName.text.toString(), surname = userNameEtSurname.text.toString()).createOrUpdate()
             addFragment(R.id.loginContainer, ExtraInfoFragment.newInstance(), null)
         }
     }

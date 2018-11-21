@@ -19,6 +19,7 @@
     <!-- /Username screen -->
 
     <!-- Extra info screen -->
+    <string name="extraInfoTvName">%1$s %2$s</string>
     <string name="extraInfoTvPhone">Telefon Nummer (Valgfritt)</string>
     <string name="extraInfoTvEmail">E-Mail (Valgfritt)</string>
     <string name="extraInfoTvPin">Personlig 4-Sifret Kode</string>
