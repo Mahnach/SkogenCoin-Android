@@ -88,7 +88,7 @@ abstract class BaseActivity<P : BasePresenter> : AppCompatActivity(), BaseView, 
      * @param tag         for new fragment
      */
     protected fun addFragment(@IdRes containerId: Int, fragment: BaseFragment<*, *>, tag: String?) {
-        fragmentManager.beginTransaction().add(containerId, fragment, tag).addToBackStack(null)
+        fragmentManager.beginTransaction().replace(containerId, fragment, tag).addToBackStack(null)
             .commitAllowingStateLoss()
     }
 

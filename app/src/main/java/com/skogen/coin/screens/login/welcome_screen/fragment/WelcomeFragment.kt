@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import com.skogen.coin.R
 import com.skogen.coin.screens.login.LoginActivity
+import com.skogen.coin.screens.login.username_screen.fragment.UsernameFragment
 import com.skogen.coin.screens.login.welcome_screen.fragment.presentation.presenter.WelcomePresenter
 import com.skogen.coin.screens.login.welcome_screen.fragment.presentation.view.WelcomeView
 import com.skogen.coin.skeleton.fragment.BaseFragment
@@ -37,7 +38,7 @@ class WelcomeFragment : BaseFragment<LoginActivity, WelcomePresenter>(), Welcome
     override fun onClick(v: View?) {
         v?.let {
             when(v){
-                welcomeBtnRegister -> Timber.e("welcomeBtnRegister -> ")
+                welcomeBtnRegister -> addFragment(R.id.loginContainer, UsernameFragment.newInstance(), null)
                 welcomeBtnLogin -> Timber.e("welcomeBtnLogin -> ")
                 welcomeTvBedrift -> Timber.e("welcomeTvBedrift -> ")
             }

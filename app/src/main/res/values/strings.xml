@@ -4,10 +4,18 @@
 
     <!-- Welcome screen -->
     <string name="hello">Hei!</string>
-    <string name="welcome_tv_bedrift"><u>Bedrift</u></string>
+    <string name="welcomeTvBedrift"><u>Bedrift</u></string>
     <string name="login">Logg Inn</string>
-    <string name="welcome_btn_register">Registrer Deg</string>
-    <string name="loading">Laster&#8230;</string>
-    <string name="username_tv">La oss bli bedre kjent!</string>
+    <string name="welcomeBtnRegister">Registrer Deg</string>
     <!-- /Welcome screen -->
+
+    <string name="loading">Laster&#8230;</string>
+
+    <!-- Username screen -->
+    <string name="usernameTv">La oss bli bedre kjent!</string>
+    <string name="userNameTvName">Fornavn</string>
+    <string name="userNameTvSurname">Etternavn</string>
+    <string name="usernameTvConfirm">Ser det greit ut?</string>
+    <!-- /Username screen -->
+
 </resources>

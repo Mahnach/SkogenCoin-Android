@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground">
+    android:background="@color/colorBackground"
+    android:padding="@dimen/margin_primary">
 
     <ImageView
         android:id="@+id/userNameLogo"
@@ -19,12 +20,83 @@
     <TextView
         android:id="@+id/userNameTv"
         style="@style/TextViewStyle"
-        android:text="@string/username_tv"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="@dimen/margin_primary_4X"
+        android:text="@string/usernameTv"
         android:textSize="@dimen/text_size_x3_large"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/userNameLogo"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userNameLogo" />
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_primary_8X"
+        android:layout_marginEnd="@dimen/margin_primary_8X"
+        android:layout_marginBottom="@dimen/margin_primary_3X"
+        app:layout_constraintBottom_toTopOf="@+id/usernameTvConfirm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userNameTv">
+
+        <TextView
+            android:id="@+id/userNameTvName"
+            style="@style/TextViewStyle"
+            android:text="@string/userNameTvName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/userNameEtName"
+            style="@style/EditTextStyle"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userNameTvName"
+            tools:text="Ola" />
+
+        <TextView
+            android:id="@+id/userNameTvSurname"
+            style="@style/TextViewStyle"
+            android:layout_marginTop="@dimen/margin_primary_3X"
+            android:text="@string/userNameTvSurname"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userNameEtName" />
+
+        <EditText
+            android:id="@+id/userNameEtSurname"
+            style="@style/EditTextStyle"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userNameTvSurname"
+            tools:text="Nordmann" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/usernameTvConfirm"
+        style="@style/TextViewStyle"
+        android:layout_marginBottom="@dimen/margin_primary_2X"
+        android:text="@string/usernameTvConfirm"
+        android:textSize="@dimen/text_size_xl_large"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/userNameBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/userNameBtn"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="@dimen/margin_primary_3X"
+        android:background="@drawable/selector_btn_primary_round"
+        android:drawableStart="@drawable/selector_iv_arrow_right_accent"
+        android:enabled="false"
+        android:paddingStart="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

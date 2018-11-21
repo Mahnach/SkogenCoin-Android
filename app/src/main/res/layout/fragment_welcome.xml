@@ -1,60 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorBackground"
-        android:padding="@dimen/margin_half">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:padding="@dimen/margin_half">
 
     <ImageView
-            android:id="@+id/welcomeIvLogo"
-            android:layout_width="@dimen/logo_default_size"
-            android:layout_height="@dimen/logo_default_size"
-            android:src="@drawable/ic_logo"
-            android:layout_marginTop="@dimen/margin_primary_5X"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+        android:id="@+id/welcomeIvLogo"
+        android:layout_width="@dimen/logo_default_size"
+        android:layout_height="@dimen/logo_default_size"
+        android:layout_marginTop="@dimen/margin_primary_5X"
+        android:src="@drawable/ic_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-            style="@style/TextViewStyle"
-            android:layout_marginTop="@dimen/margin_primary_3X"
-            android:text="@string/hello"
-            android:textSize="@dimen/text_size_2xx_large"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/welcomeIvLogo"/>
+        style="@style/TextViewStyle"
+        android:layout_marginTop="@dimen/margin_primary_3X"
+        android:text="@string/hello"
+        android:textSize="@dimen/text_size_2xx_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeIvLogo" />
 
     <Button
-            android:id="@+id/welcomeBtnRegister"
-            style="@style/ButtonStyle"
-            android:layout_marginBottom="@dimen/margin_primary_1_5X"
-            android:text="@string/welcome_btn_register"
-            app:layout_constraintBottom_toTopOf="@+id/welcomeBtnLogin"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+        android:id="@+id/welcomeBtnRegister"
+        style="@style/ButtonStyle"
+        android:layout_marginBottom="@dimen/margin_primary_1_5X"
+        android:text="@string/welcomeBtnRegister"
+        app:layout_constraintBottom_toTopOf="@+id/welcomeBtnLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-            android:id="@+id/welcomeBtnLogin"
-            style="@style/ButtonStyle"
-            android:layout_marginBottom="@dimen/margin_primary_2X"
-            android:text="@string/login"
-            app:layout_constraintBottom_toTopOf="@+id/welcomeTvBedrift"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+        android:id="@+id/welcomeBtnLogin"
+        style="@style/ButtonStyle"
+        android:layout_marginBottom="@dimen/margin_primary_2X"
+        android:text="@string/login"
+        app:layout_constraintBottom_toTopOf="@+id/welcomeTvBedrift"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-            android:id="@+id/welcomeTvBedrift"
-            style="@style/TextViewStyle"
-            android:text="@string/welcome_tv_bedrift"
-            android:textSize="@dimen/text_size_small"
-            android:background="?android:selectableItemBackground"
-            android:padding="@dimen/margin_primary"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+        android:id="@+id/welcomeTvBedrift"
+        style="@style/TextViewStyle"
+        android:background="?android:selectableItemBackground"
+        android:padding="@dimen/margin_primary"
+        android:text="@string/welcomeTvBedrift"
+        android:textSize="@dimen/text_size_small"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

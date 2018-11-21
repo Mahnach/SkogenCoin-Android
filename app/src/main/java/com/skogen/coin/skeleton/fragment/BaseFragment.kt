@@ -82,11 +82,7 @@ abstract class BaseFragment<A : BaseActivity<*>, P : BasePresenter> : Fragment()
      * @param tag         for new fragment
      */
     protected fun replaceFragment(@IdRes containerId: Int, fragment: BaseFragment<*, *>, tag: String?) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            childFragmentManager.beginTransaction().replace(containerId, fragment, tag).commitAllowingStateLoss()
-        } else {
-            fragmentManager.beginTransaction().replace(containerId, fragment, tag).commitAllowingStateLoss()
-        }
+        fragmentManager.beginTransaction().replace(containerId, fragment, tag).commitAllowingStateLoss()
     }
 
     /**
@@ -97,13 +93,8 @@ abstract class BaseFragment<A : BaseActivity<*>, P : BasePresenter> : Fragment()
      * @param tag         for new fragment
      */
     protected fun addFragment(@IdRes containerId: Int, fragment: BaseFragment<*, *>, tag: String?) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            childFragmentManager.beginTransaction().replace(containerId, fragment, tag).addToBackStack(tag)
-                .commitAllowingStateLoss()
-        } else {
-            fragmentManager.beginTransaction().replace(containerId, fragment, tag).addToBackStack(tag)
-                .commitAllowingStateLoss()
-        }
+        fragmentManager.beginTransaction().replace(containerId, fragment, tag).addToBackStack(tag)
+            .commitAllowingStateLoss()
     }
 
     override fun showProgressView() = activity.showProgressView()
