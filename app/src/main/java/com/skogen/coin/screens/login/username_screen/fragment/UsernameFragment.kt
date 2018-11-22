@@ -13,6 +13,7 @@ import com.skogen.coin.screens.login.username_screen.fragment.presentation.view.
 import com.skogen.coin.skeleton.fragment.BaseFragment
 import com.vicpin.krealmextensions.create
 import com.vicpin.krealmextensions.createOrUpdate
+import com.vicpin.krealmextensions.deleteAll
 import com.vicpin.krealmextensions.save
 import kotlinx.android.synthetic.main.fragment_username.*
 import timber.log.Timber
@@ -75,6 +76,7 @@ class UsernameFragment : BaseFragment<LoginActivity, UsernamePresenter>(), Usern
         })
 
         userNameBtn.setOnClickListener {
+            UserModel().deleteAll()
             UserModel(name = userNameEtName.text.toString(), surname = userNameEtSurname.text.toString()).createOrUpdate()
             addFragment(R.id.loginContainer, ExtraInfoFragment.newInstance(), null)
         }

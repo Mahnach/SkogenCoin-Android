@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context=".screens.main.MainActivity">
+
+    <FrameLayout
+        android:id="@+id/mainContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/mainVDivider"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/mainVDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorDivider"
+        app:layout_constraintBottom_toTopOf="@+id/mainBnv" />
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/mainBnv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/margin_half"
+        app:itemBackground="@color/colorBackground"
+        app:itemIconTint="@color/colorPrimary"
+        app:itemTextColor="@drawable/selector_bottom_nav_item_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/menu_main_bottom_navigation" />
+
+</android.support.constraint.ConstraintLayout>

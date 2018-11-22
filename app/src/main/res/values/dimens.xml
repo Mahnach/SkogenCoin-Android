@@ -19,6 +19,7 @@
     <!-- endregion -->
 
     <!-- region TextSize dimens-->
+    <dimen name="text_size_smallest">8sp</dimen>
     <dimen name="text_size_extra_small">10sp</dimen>
     <dimen name="text_size_small">12sp</dimen>
     <dimen name="text_size_normal">14sp</dimen>
@@ -33,5 +34,7 @@
 
     <dimen name="logo_default_size">140dp</dimen>
     <dimen name="btn_default_radius">25dp</dimen>
+    <dimen name="menu_meal_radius">30dp</dimen>
+
     <dimen name="avatar_size">104dp</dimen>
 </resources>

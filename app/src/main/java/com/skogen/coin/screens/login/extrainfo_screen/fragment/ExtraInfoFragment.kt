@@ -72,6 +72,17 @@ class ExtraInfoFragment : BaseFragment<LoginActivity, ExtraInfoPresenter>(), Ext
     }
 
     private fun initEt() {
+        extraInfoEtPhone.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(text: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                showOrHideBtn()
+            }
+        })
         extraInfoPin.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
             }
@@ -120,7 +131,7 @@ class ExtraInfoFragment : BaseFragment<LoginActivity, ExtraInfoPresenter>(), Ext
 
     private fun showOrHideBtn() {
         extraInfoBtn.isEnabled = !extraInfoPin.text.toString().isNullOrEmpty()
-                && extraInfoPin.text.toString().length >= 4
+                && extraInfoPin.text.toString().length >= 4 && !extraInfoEtPhone.text.toString().isNullOrEmpty()
     }
 
     @Suppress("IMPLICIT_CAST_TO_ANY")

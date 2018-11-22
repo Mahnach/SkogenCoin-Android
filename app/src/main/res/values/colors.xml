@@ -5,7 +5,9 @@
     <color name="colorAccent">#FF5E3A</color>
 
     <color name="colorBackground">#F2F2F0</color>
+    <color name="colorDivider">#c9c9c9</color>
 
     <color name="colorBtnDisabled">#8c2c365d</color>
+    <color name="colorTextDisabled">#8cff5e3a</color>
     <color name="colorAvatarBg">#F5F5F5</color>
 </resources>

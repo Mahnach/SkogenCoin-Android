@@ -1,15 +1,12 @@
 <resources>
     <string name="app_name">SkogenCoin</string>
 
-
     <!-- Welcome screen -->
     <string name="hello">Hei!</string>
     <string name="welcomeTvBedrift"><u>Bedrift</u></string>
     <string name="login">Logg Inn</string>
     <string name="welcomeBtnRegister">Registrer Deg</string>
     <!-- /Welcome screen -->
-
-    <string name="loading">Laster&#8230;</string>
 
     <!-- Username screen -->
     <string name="usernameTv">La oss bli bedre kjent!</string>
@@ -20,11 +17,26 @@
 
     <!-- Extra info screen -->
     <string name="extraInfoTvName">%1$s %2$s</string>
-    <string name="extraInfoTvPhone">Telefon Nummer (Valgfritt)</string>
+    <string name="extraInfoTvPhone">Telefon Nummer (Obligatorisk)</string>
     <string name="extraInfoTvEmail">E-Mail (Valgfritt)</string>
     <string name="extraInfoTvPin">Personlig 4-Sifret Kode</string>
-    <string name="error_invalid_phone">Ugyldig telefonnummer</string>
-    <string name="error_invalid_email">Ugyldig epostadresse</string>
     <!-- /Extra info screen -->
 
+    <string name="loginPinTvNext">Gå Videre</string>
+
+    <!-- Errors -->
+    <string name="error_invalid_phone">Ugyldig telefonnummer</string>
+    <string name="error_invalid_email">Ugyldig epostadresse</string>
+    <string name="error_pin_incorrect">Feil pin</string>
+    <!-- /Errors -->
+
+    <!-- General -->
+    <string name="loading">Laster&#8230;</string>
+    <string name="home">Hjem</string>
+    <string name="search">Søk</string>
+    <string name="my_profile">Min Profil</string>
+    <string name="settings">Innstillinger</string>
+    <string name="scan">Scan</string>
+    <string name="price_placeholder">%1$dKr</string>
+    <!-- /General -->
 </resources>
