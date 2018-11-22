@@ -1,122 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground">
+    android:fillViewport="true">
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="4dp"
-        android:focusable="true"
-        android:focusableInTouchMode="true"/>
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/extraInfoCivAvatar"
-        android:layout_width="@dimen/avatar_size"
-        android:layout_height="@dimen/avatar_size"
-        android:layout_marginTop="@dimen/margin_primary_3X"
-        android:elevation="4dp"
-        android:src="@drawable/ic_plus_accent"
-        app:civ_border_color="@color/colorAvatarBg"
-        app:civ_border_width="1dp"
-        app:civ_circle_background_color="@color/colorAvatarBg"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/extraInfoTvName"
-        style="@style/TextViewStyle"
-        android:layout_marginTop="@dimen/margin_primary_3X"
-        android:textSize="@dimen/text_size_xl_large"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/extraInfoCivAvatar"
-        tools:text="Ola Nordmann" />
-
-    <TextView
-        android:id="@+id/extraInfoTvPhone"
-        style="@style/TextViewStyle"
-        android:layout_marginTop="@dimen/margin_primary_3X"
-        android:text="@string/extraInfoTvPhone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/extraInfoTvName" />
-
-    <EditText
-        android:id="@+id/extraInfoEtPhone"
-        style="@style/EditTextStyle"
-        android:layout_marginStart="@dimen/margin_primary_4X"
-        android:layout_marginEnd="@dimen/margin_primary_4X"
-        android:inputType="phone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/extraInfoTvPhone"
-        tools:text="23123" />
-
-    <TextView
-        android:id="@+id/extraInfoTvEmail"
-        style="@style/TextViewStyle"
-        android:layout_marginTop="@dimen/margin_primary_2X"
-        android:text="@string/extraInfoTvEmail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/extraInfoEtPhone" />
-
-    <EditText
-        android:id="@+id/extraInfoEtEmail"
-        style="@style/EditTextStyle"
-        android:layout_marginStart="@dimen/margin_primary_4X"
-        android:layout_marginEnd="@dimen/margin_primary_4X"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/extraInfoTvEmail"
-        tools:text="Nordmann" />
-
-    <TextView
-        android:id="@+id/extraInfoTvPin"
-        style="@style/TextViewStyle"
-        android:text="@string/extraInfoTvPin"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="@dimen/margin_primary_2X"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/extraInfoEtEmail" />
-
-    <com.chaos.view.PinView
-        android:id="@+id/extraInfoPin"
-        style="@style/PinWidget.PinView"
-        android:layout_width="wrap_content"
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:cursorVisible="true"
-        android:inputType="numberPassword"
-        android:textColor="@color/colorAccent"
-        android:textSize="@dimen/text_size_medium"
-        app:cursorColor="@color/colorAccent"
-        app:hideLineWhenFilled="false"
-        app:itemCount="4"
-        app:itemWidth="36dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/extraInfoTvPin"
-        app:lineColor="@color/colorPrimary"
-        app:lineWidth="4dp"
-        app:viewType="line"
-        tools:text="1234" />
+        android:background="@color/colorBackground"
+        android:fitsSystemWindows="false">
 
-    <Button
-        android:id="@+id/extraInfoBtn"
-        android:layout_width="66dp"
-        android:layout_height="66dp"
-        android:background="@drawable/selector_btn_primary_round"
-        android:drawableStart="@drawable/selector_iv_arrow_right_accent"
-        android:enabled="false"
-        android:paddingStart="3dp"
-        app:layout_constraintTop_toBottomOf="@+id/extraInfoPin"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="4dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true" />
 
-</android.support.constraint.ConstraintLayout>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/extraInfoCivAvatar"
+            android:layout_width="@dimen/avatar_size"
+            android:layout_height="@dimen/avatar_size"
+            android:layout_marginTop="@dimen/margin_primary_3X"
+            android:elevation="4dp"
+            android:src="@drawable/ic_plus_accent"
+            app:civ_border_color="@color/colorAvatarBg"
+            app:civ_border_width="1dp"
+            app:civ_circle_background_color="@color/colorAvatarBg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/extraInfoTvName"
+            style="@style/TextViewStyle"
+            android:layout_marginTop="@dimen/margin_primary_3X"
+            android:textSize="@dimen/text_size_xl_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/extraInfoCivAvatar"
+            tools:text="Ola Nordmann" />
+
+        <TextView
+            android:id="@+id/extraInfoTvPhone"
+            style="@style/TextViewStyle"
+            android:layout_marginTop="@dimen/margin_primary_3X"
+            android:text="@string/extraInfoTvPhone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/extraInfoTvName" />
+
+        <EditText
+            android:id="@+id/extraInfoEtPhone"
+            style="@style/EditTextStyle"
+            android:layout_marginStart="@dimen/margin_primary_4X"
+            android:layout_marginEnd="@dimen/margin_primary_4X"
+            android:inputType="phone"
+            android:maxLength="15"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/extraInfoTvPhone"
+            tools:text="23123" />
+
+        <TextView
+            android:id="@+id/extraInfoTvEmail"
+            style="@style/TextViewStyle"
+            android:layout_marginTop="@dimen/margin_primary_2X"
+            android:text="@string/extraInfoTvEmail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/extraInfoEtPhone" />
+
+        <EditText
+            android:id="@+id/extraInfoEtEmail"
+            style="@style/EditTextStyle"
+            android:layout_marginStart="@dimen/margin_primary_4X"
+            android:layout_marginEnd="@dimen/margin_primary_4X"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/extraInfoTvEmail"
+            tools:text="Nordmann" />
+
+        <TextView
+            android:id="@+id/extraInfoTvPin"
+            style="@style/TextViewStyle"
+            android:layout_marginTop="@dimen/margin_primary_2X"
+            android:text="@string/extraInfoTvPin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/extraInfoEtEmail" />
+
+        <com.chaos.view.PinView
+            android:id="@+id/extraInfoPin"
+            style="@style/PinWidget.PinView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:cursorVisible="true"
+            android:inputType="numberPassword"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/text_size_medium"
+            app:cursorColor="@color/colorAccent"
+            app:hideLineWhenFilled="false"
+            app:itemCount="4"
+            app:itemWidth="36dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/extraInfoTvPin"
+            app:lineColor="@color/colorPrimary"
+            app:lineWidth="4dp"
+            app:viewType="line"
+            tools:text="1234" />
+
+        <Button
+            android:id="@+id/extraInfoBtn"
+            android:layout_width="66dp"
+            android:layout_height="66dp"
+            android:background="@drawable/selector_btn_primary_round"
+            android:drawableStart="@drawable/selector_iv_arrow_right_accent"
+            android:layout_marginTop="@dimen/margin_primary_3X"
+            android:layout_marginBottom="@dimen/margin_primary_3X"
+            android:enabled="false"
+            android:paddingStart="3dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/extraInfoPin" />
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

@@ -32,6 +32,9 @@ import com.skogen.coin.utils.Validator
 import com.vicpin.krealmextensions.queryFirst
 import kotlinx.android.synthetic.main.fragment_extra_info.*
 import timber.log.Timber
+import android.view.WindowManager
+
+
 
 class ExtraInfoFragment : BaseFragment<LoginActivity, ExtraInfoPresenter>(), ExtraInfoView,
         View.OnClickListener {
@@ -65,6 +68,7 @@ class ExtraInfoFragment : BaseFragment<LoginActivity, ExtraInfoPresenter>(), Ext
         initEt()
         extraInfoBtn.setOnClickListener(this)
         extraInfoCivAvatar.setOnClickListener(this)
+        getActivity()?.getWindow()?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
     }
 
     private fun initEt() {
@@ -116,6 +120,7 @@ class ExtraInfoFragment : BaseFragment<LoginActivity, ExtraInfoPresenter>(), Ext
 
     private fun showOrHideBtn() {
         extraInfoBtn.isEnabled = !extraInfoPin.text.toString().isNullOrEmpty()
+                && extraInfoPin.text.toString().length >= 4
     }
 
     @Suppress("IMPLICIT_CAST_TO_ANY")
