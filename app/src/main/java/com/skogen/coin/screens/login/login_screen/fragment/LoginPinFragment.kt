@@ -65,6 +65,7 @@ class LoginPinFragment : BaseFragment<LoginActivity, LoginPinPresenter>(), Login
     }
 
     override fun showOkResult() {
+        activity.finish()
         startActivity(Intent(activity, MainActivity::class.java))
     }
 

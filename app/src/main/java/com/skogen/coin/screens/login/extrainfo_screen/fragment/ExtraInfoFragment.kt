@@ -11,6 +11,7 @@ import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.ActivityCompat.requestPermissions
 import android.support.v4.app.ActivityCompat.startActivityForResult
+import android.support.v4.app.FragmentManager
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
@@ -33,7 +34,7 @@ import com.vicpin.krealmextensions.queryFirst
 import kotlinx.android.synthetic.main.fragment_extra_info.*
 import timber.log.Timber
 import android.view.WindowManager
-
+import com.skogen.coin.screens.login.login_phone_screen.fragment.LoginPhoneFragment
 
 
 class ExtraInfoFragment : BaseFragment<LoginActivity, ExtraInfoPresenter>(), ExtraInfoView,
@@ -68,7 +69,7 @@ class ExtraInfoFragment : BaseFragment<LoginActivity, ExtraInfoPresenter>(), Ext
         initEt()
         extraInfoBtn.setOnClickListener(this)
         extraInfoCivAvatar.setOnClickListener(this)
-        getActivity()?.getWindow()?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+        getActivity()?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
     }
 
     private fun initEt() {
@@ -126,7 +127,9 @@ class ExtraInfoFragment : BaseFragment<LoginActivity, ExtraInfoPresenter>(), Ext
     }
 
     override fun showOkResult() {
-        Toast.makeText(context, "SENDED", Toast.LENGTH_SHORT).show()
+        getActivity()?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
+        activity.supportFragmentManager?.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        addFragment(R.id.loginContainer, LoginPhoneFragment.newInstance(), null)
     }
 
     private fun showOrHideBtn() {
@@ -187,7 +190,7 @@ class ExtraInfoFragment : BaseFragment<LoginActivity, ExtraInfoPresenter>(), Ext
                 stream?.close()
 
                 extraInfoCivAvatar.borderColor = resources.getColor(R.color.colorPrimary)
-                Glide.with(this).load(data?.data).into(extraInfoCivAvatar)
+                Glide.with(this).load(data.data).into(extraInfoCivAvatar)
             }
         }
         super.onActivityResult(requestCode, resultCode, data)
