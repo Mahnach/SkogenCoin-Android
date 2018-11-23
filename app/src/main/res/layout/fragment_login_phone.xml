@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+
+    <ImageView
+        android:id="@+id/loginPhoneLogo"
+        android:layout_width="120dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="@dimen/margin_primary_2X"
+        android:src="@drawable/ic_logo_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/loginPhoneBtn"
+        app:layout_constraintTop_toBottomOf="@+id/loginPhoneLogo">
+
+        <TextView
+            android:id="@+id/loginPhoneTvPhone"
+            style="@style/TextViewStyle"
+            android:layout_marginTop="@dimen/margin_primary_3X"
+            android:text="@string/loginPhoneTvPhone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/loginPhoneEtPhone"
+            style="@style/EditTextStyle"
+            android:layout_marginStart="@dimen/margin_primary_4X"
+            android:layout_marginTop="@dimen/margin_primary_2X"
+            android:layout_marginEnd="@dimen/margin_primary_4X"
+            android:inputType="phone"
+            android:maxLength="15"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loginPhoneTvPhone"
+            tools:text="23123" />
+    </android.support.constraint.ConstraintLayout>
+
+    <Button
+        android:id="@+id/loginPhoneBtn"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="@dimen/margin_primary_3X"
+        android:layout_marginBottom="@dimen/margin_primary_3X"
+        android:background="@drawable/selector_btn_primary_round"
+        android:drawableStart="@drawable/selector_iv_arrow_right_accent"
+        android:enabled="false"
+        android:paddingStart="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

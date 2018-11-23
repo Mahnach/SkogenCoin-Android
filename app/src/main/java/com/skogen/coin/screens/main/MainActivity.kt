@@ -1,5 +1,7 @@
 package com.skogen.coin.screens.main
 
+import android.content.Intent
+import android.os.Handler
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.FragmentManager
 import android.view.MenuItem
@@ -19,9 +21,17 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView, BottomNavigationVi
     }
 
     override fun initViews() {
+        // TODO: test loading
+        showProgressView()
+        Handler().postDelayed({
+            hideProgressView()
+        }, 1500)
+
         mainBnv.itemIconTintList = null
         mainBnv.setOnNavigationItemSelectedListener(this)
-//        replaceFragment(R.id.mainContainer, MenuFragment.newInstance(), null)
+        // TODO: change to main screen
+        replaceFragment(R.id.mainContainer, MenuFragment.newInstance(), null)
+
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {

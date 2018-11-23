@@ -1,6 +1,7 @@
 package com.skogen.coin.screens.login.username_screen.fragment
 
 import android.os.Bundle
+import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
@@ -78,7 +79,13 @@ class UsernameFragment : BaseFragment<LoginActivity, UsernamePresenter>(), Usern
         userNameBtn.setOnClickListener {
             UserModel().deleteAll()
             UserModel(name = userNameEtName.text.toString(), surname = userNameEtSurname.text.toString()).createOrUpdate()
+            
+            // TODO: progress for test
+            showProgressView()
             addFragment(R.id.loginContainer, ExtraInfoFragment.newInstance(), null)
+            Handler().postDelayed({
+                hideProgressView()
+            }, 1500)
         }
     }
 }

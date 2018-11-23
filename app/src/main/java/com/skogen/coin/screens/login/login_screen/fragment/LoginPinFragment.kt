@@ -12,9 +12,7 @@ import com.skogen.coin.screens.login.login_screen.fragment.presentation.presente
 import com.skogen.coin.screens.login.login_screen.fragment.presentation.view.LoginPinView
 import com.skogen.coin.screens.main.MainActivity
 import com.skogen.coin.skeleton.fragment.BaseFragment
-import kotlinx.android.synthetic.main.fragment_extra_info.*
 import kotlinx.android.synthetic.main.fragment_login_pin.*
-import timber.log.Timber
 
 class LoginPinFragment : BaseFragment<LoginActivity, LoginPinPresenter>(), LoginPinView, View.OnClickListener {
 
@@ -26,10 +24,12 @@ class LoginPinFragment : BaseFragment<LoginActivity, LoginPinPresenter>(), Login
     }
 
     companion object {
-        fun newInstance(): LoginPinFragment {
+        const val ARG_PHONE_NUMBER = "arg_phone_number"
+        fun newInstance(phoneNumber: String): LoginPinFragment {
             val args = Bundle()
             val fragment = LoginPinFragment()
-            fragment.setArguments(args)
+            args.putString(ARG_PHONE_NUMBER, phoneNumber)
+            fragment.arguments = args
             return fragment
         }
     }
@@ -56,9 +56,9 @@ class LoginPinFragment : BaseFragment<LoginActivity, LoginPinPresenter>(), Login
 
     override fun onClick(v: View?) {
         v?.let {
-            when(v) {
+            when (v) {
                 loginPinIvBack -> activity.onBackPressed()
-                loginPinBtn -> presenter?.checkPinIsCorrect(loginPin.text.toString())
+                loginPinBtn -> presenter?.checkPinIsCorrect(arguments?.getString(ARG_PHONE_NUMBER), loginPin.text.toString())
                 else -> Unit
             }
         }

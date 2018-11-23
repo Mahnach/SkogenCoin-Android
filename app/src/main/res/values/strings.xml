@@ -23,6 +23,7 @@
     <!-- /Extra info screen -->
 
     <string name="loginPinTvNext">Gå Videre</string>
+    <string name="loginPhoneTvPhone">Telefon Nummer</string>
 
     <!-- Errors -->
     <string name="error_invalid_phone">Ugyldig telefonnummer</string>
