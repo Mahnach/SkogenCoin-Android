@@ -10,4 +10,5 @@ import java.io.Serializable
  */
 
 open class UserModel(@PrimaryKey var id: Long? = null, var name: String = "", var surname: String = "", var photo: String? = null, var phone: String? = null,
-                      var email: String? = null, var pin: String? = null): Serializable, RealmObject()
+                      var email: String? = null, var password: String? = null, var stripeId: String? = null,
+                     var token: String? = null): Serializable, RealmObject()

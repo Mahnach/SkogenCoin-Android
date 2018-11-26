@@ -99,4 +99,19 @@
         app:layout_constraintEnd_toEndOf="@+id/itemMenuClMeal"
         app:layout_constraintTop_toBottomOf="@+id/itemMenuClMeal" />
 
+    <TextView
+        android:id="@+id/itemMenuTvPercents"
+        style="@style/TextViewStyle"
+        android:layout_width="0dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:paddingStart="@dimen/margin_half"
+        android:paddingEnd="@dimen/margin_half"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintEnd_toStartOf="@+id/itemMenuTvNext"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/itemMenuTvPrice"
+        app:layout_constraintTop_toBottomOf="@+id/itemMenuClMeal"
+        tools:text="25% moms" />
+
 </android.support.constraint.ConstraintLayout>

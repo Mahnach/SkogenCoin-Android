@@ -29,6 +29,11 @@
     <string name="error_invalid_phone">Ugyldig telefonnummer</string>
     <string name="error_invalid_email">Ugyldig epostadresse</string>
     <string name="error_pin_incorrect">Feil pin</string>
+
+    <string name="errorApiNoInternet">Kontroller nettverkstilkobling</string>
+    <string name="errorApi500_503">Beklager, tjenesten er midlertidig utilgjengelig. Prøv igjen senere.</string>
+    <string name="errorBadToken">Du må være logget inn for denne operasjonen</string>
+    <string name="error404">Ingen resultater funnet for din forespørsel.</string>
     <!-- /Errors -->
 
     <!-- General -->

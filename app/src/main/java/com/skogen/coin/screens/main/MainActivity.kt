@@ -21,12 +21,6 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView, BottomNavigationVi
     }
 
     override fun initViews() {
-        // TODO: test loading
-        showProgressView()
-        Handler().postDelayed({
-            hideProgressView()
-        }, 1500)
-
         mainBnv.itemIconTintList = null
         mainBnv.setOnNavigationItemSelectedListener(this)
         // TODO: change to main screen

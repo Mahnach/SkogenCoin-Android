@@ -38,6 +38,9 @@ open class MenuCategoryAdapter(var context: Context?) : BaseRvAdapter<MenuMealMo
             itemView.itemMenuTvName.text = item?.name
             itemView.itemMenuTvDesc.text = item?.desc
             itemView.itemMenuTvPrice.text = context!!.getString(R.string.price_placeholder, item?.price)
+
+            // TODO: test info!!
+            itemView.itemMenuTvPercents.text = "25% moms"
         }
     }
 }

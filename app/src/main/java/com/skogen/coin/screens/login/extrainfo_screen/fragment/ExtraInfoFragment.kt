@@ -127,6 +127,7 @@ class ExtraInfoFragment : BaseFragment<LoginActivity, ExtraInfoPresenter>(), Ext
     }
 
     override fun showOkResult() {
+        hideProgressView()
         getActivity()?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
         activity.supportFragmentManager?.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
         addFragment(R.id.loginContainer, LoginPhoneFragment.newInstance(), null)

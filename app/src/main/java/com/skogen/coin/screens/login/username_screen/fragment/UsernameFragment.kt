@@ -79,13 +79,7 @@ class UsernameFragment : BaseFragment<LoginActivity, UsernamePresenter>(), Usern
         userNameBtn.setOnClickListener {
             UserModel().deleteAll()
             UserModel(name = userNameEtName.text.toString(), surname = userNameEtSurname.text.toString()).createOrUpdate()
-            
-            // TODO: progress for test
-            showProgressView()
             addFragment(R.id.loginContainer, ExtraInfoFragment.newInstance(), null)
-            Handler().postDelayed({
-                hideProgressView()
-            }, 1500)
         }
     }
 }
