@@ -1,15 +1,21 @@
 package com.skogen.coin.screens.login.card_info_input_screen.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.widget.Toast
 import com.redmadrobot.inputmask.MaskedTextChangedListener
 import com.skogen.coin.R
+import com.skogen.coin.models.UserModel
 import com.skogen.coin.screens.login.LoginActivity
 import com.skogen.coin.screens.login.card_info_input_screen.fragment.presentation.presenter.CardInfoInputPresenter
 import com.skogen.coin.screens.login.card_info_input_screen.fragment.presentation.view.CardInfoInputView
+import com.skogen.coin.screens.main.MainActivity
 import com.skogen.coin.skeleton.fragment.BaseFragment
+import com.stripe.android.model.Card
+import com.vicpin.krealmextensions.queryFirst
 import kotlinx.android.synthetic.main.fragment_card_info_input.*
 
 class CardInfoInputFragment : BaseFragment<LoginActivity, CardInfoInputPresenter>(), CardInfoInputView, View.OnClickListener {
@@ -31,6 +37,9 @@ class CardInfoInputFragment : BaseFragment<LoginActivity, CardInfoInputPresenter
     }
 
     override fun initViews(rootView: View?) {
+        val user = UserModel().queryFirst()
+        cardInfoTvUser.text = getString(R.string.name_placeholder, user?.name, user?.surname)
+
         cardInfoIvCamera.setOnClickListener(this)
         cardInfoBtn.setOnClickListener(this)
         initEts()
@@ -96,8 +105,20 @@ class CardInfoInputFragment : BaseFragment<LoginActivity, CardInfoInputPresenter
         v?.let {
             when(v) {
                 cardInfoIvCamera -> {}
-                cardInfoBtn -> {}
+                cardInfoBtn -> { presenter?.createCard(cardInfoEtCardNumber.text.toString(), cardInfoEtExpDate.text.toString(),
+                    cardInfoEtCVC.text.toString(), cardInfoEtCardHolder.text.toString())
+                }
+                else -> Unit
             }
         }
+    }
+
+    override fun showErrorCardValidation() {
+        Toast.makeText(context, getString(R.string.error_card_credentials), Toast.LENGTH_SHORT).show()
+    }
+
+    override fun showOkResult() {
+        activity.finish()
+        startActivity(Intent(activity, MainActivity::class.java))
     }
 }

@@ -24,18 +24,33 @@
     <string name="loginPinTvNext">Gå Videre</string>
     <string name="loginPhoneTvPhone">Telefon Nummer</string>
 
-    <!-- Add payment & Scan Card screens -->
+    <!-- Add payment & Scan Card & Card Info screens -->
     <string name="addPaymentTvLater"><u>Legg til senere</u></string>
     <string name="addPaymentTv">Ønsker du å legge til en betalingsmetode?</string>
     <string name="addCard">Legg til kort</string>
     <string name="scanCardTvDontManually">Du trenger ikke skrive inn kortet manuelt!</string>
     <string name="scanCardTvSure">Vil du fortsatt være ekstra sikker?</string>
+    <string name="cardInfoTvCardNumber">Kortnummer</string>
+    <string name="cardInfoTvExpDate">Utløpsdato</string>
+    <string name="cardInfoTvCVC">CVC</string>
+    <string name="cardInfoTvCardHolder">Navn På Innehaver</string>
+    <string name="cardInfoTvRight">Ser riktig ut!</string>
     <!-- /Add payment & Scan Card screens -->
+
+    <!-- Home screen -->
+    <string name="homeTvTodaysOffers">Dagens Tilbud</string>
+    <string name="homeTvScanQr">Scan QR Kode</string>
+    <string name="homeTvScanQrDesc">Gjør det enda enkere å få tak i menyer!</string>
+    <string name="homeTvMyMenus">Mine Menyer</string>
+    <string name="homeTvMyMenusDesc">Her kan du finne en liste over alle menyene du har scannet</string>
+    <string name="homeTvSearchDesc">Søk på dine favoritt restauranter og få opp menyen deres slik at du kan vite akkurat hva du vil ha når du kommer dit!</string>
+    <!-- /Home screen -->
 
     <!-- Errors -->
     <string name="error_invalid_phone">Ugyldig telefonnummer</string>
     <string name="error_invalid_email">Ugyldig epostadresse</string>
     <string name="error_pin_incorrect">Feil pin</string>
+    <string name="error_card_credentials">Ugyldig kortinformasjon</string>
 
     <string name="errorApiNoInternet">Kontroller nettverkstilkobling</string>
     <string name="errorApi500_503">Beklager, tjenesten er midlertidig utilgjengelig. Prøv igjen senere.</string>
@@ -53,10 +68,5 @@
     <string name="scan">Scan</string>
     <string name="price_placeholder">%1$dKr</string>
     <string name="name_placeholder">%1$s %2$s</string>
-    <string name="cardInfoTvCardNumber">Kortnummer</string>
-    <string name="cardInfoTvExpDate">Utløpsdato</string>
-    <string name="cardInfoTvCVC">CVC</string>
-    <string name="cardInfoTvCardHolder">Navn På Innehaver</string>
-    <string name="cardInfoTvRight">Ser riktig ut!</string>
     <!-- /General -->
 </resources>

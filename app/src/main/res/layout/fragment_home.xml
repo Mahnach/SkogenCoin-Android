@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackground"
+        android:padding="@dimen/margin_primary_2X">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/homeClDailyOffer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/homeIvMeal"
+                android:layout_width="match_parent"
+                android:layout_height="114dp"
+                android:scaleType="fitXY"
+                tools:src="@drawable/ic_logo_text" />
+
+            <TextView
+                style="@style/TextViewStyle"
+                android:background="@drawable/shape_half_circle"
+                android:paddingStart="@dimen/margin_primary"
+                android:paddingTop="@dimen/margin_half_1_5X"
+                android:paddingEnd="@dimen/margin_primary"
+                android:text="20kr"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="@+id/homeIvMeal"
+                app:layout_constraintEnd_toEndOf="@+id/homeIvMeal"
+                app:layout_constraintStart_toStartOf="@+id/homeIvMeal" />
+
+            <TextView
+                android:id="@+id/homeTvTodaysOffers"
+                style="@style/TextViewStyle"
+                android:layout_marginTop="@dimen/margin_primary_2X"
+                android:maxLines="1"
+                android:text="@string/homeTvTodaysOffers"
+                android:textSize="@dimen/text_size_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/homeIvMeal" />
+
+            <View
+                android:id="@+id/homeVDiv"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/margin_half"
+                android:background="@color/colorAccent"
+                app:layout_constraintEnd_toEndOf="@+id/homeTvTodaysOffers"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="@+id/homeTvTodaysOffers"
+                app:layout_constraintTop_toBottomOf="@+id/homeTvTodaysOffers" />
+
+            <TextView
+                android:id="@+id/homeTvEvent"
+                style="@style/TextViewStyle"
+                android:layout_marginTop="@dimen/margin_half"
+                android:maxLines="1"
+                android:text="TGI Fridays"
+                android:textSize="@dimen/text_size_small"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/homeVDiv" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Karl Johan’s Gate"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/text_size_smallest"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/homeTvEvent" />
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/homeClScanQr"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_primary"
+            android:background="?android:selectableItemBackground"
+            app:layout_constraintEnd_toStartOf="@+id/homeClMyMenus"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeClDailyOffer">
+
+            <ImageView
+                android:id="@+id/homeIvScan"
+                android:layout_width="139dp"
+                android:layout_height="180dp"
+                android:src="@drawable/ic_home_scan_qr"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/homeTvScanQr"
+                style="@style/TextViewStyle"
+                android:maxLines="1"
+                android:text="@string/homeTvScanQr"
+                android:textSize="@dimen/text_size_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/homeIvScan" />
+
+            <View
+                android:id="@+id/homeVDivQr"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/margin_primary_2X"
+                android:layout_marginTop="@dimen/margin_half"
+                android:layout_marginEnd="@dimen/margin_primary_2X"
+                android:background="@color/colorAccent"
+                app:layout_constraintEnd_toEndOf="@+id/homeIvScan"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="@+id/homeIvScan"
+                app:layout_constraintTop_toBottomOf="@+id/homeTvScanQr" />
+
+            <TextView
+                android:id="@+id/homeTvScanQrDesc"
+                style="@style/TextViewStyle"
+                android:layout_width="0dp"
+                android:layout_marginTop="@dimen/margin_half"
+                android:gravity="center"
+                android:text="@string/homeTvScanQrDesc"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="@+id/homeTvScanQr"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="@+id/homeTvScanQr"
+                app:layout_constraintTop_toBottomOf="@+id/homeVDivQr" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/homeClMyMenus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_primary"
+            android:background="?android:selectableItemBackground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/homeClScanQr"
+            app:layout_constraintTop_toBottomOf="@+id/homeClDailyOffer">
+
+            <ImageView
+                android:id="@+id/homeIvMyMenus"
+                android:layout_width="140dp"
+                android:layout_height="180dp"
+                android:src="@drawable/ic_home_my_menus"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/homeTvMyMenus"
+                style="@style/TextViewStyle"
+                android:maxLines="1"
+                android:text="@string/homeTvMyMenus"
+                android:textSize="@dimen/text_size_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/homeIvMyMenus" />
+
+            <View
+                android:id="@+id/homeVDivMenu"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/margin_primary_2X"
+                android:layout_marginTop="@dimen/margin_half"
+                android:layout_marginEnd="@dimen/margin_primary_2X"
+                android:background="@color/colorAccent"
+                app:layout_constraintEnd_toEndOf="@+id/homeIvMyMenus"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="@+id/homeIvMyMenus"
+                app:layout_constraintTop_toBottomOf="@+id/homeTvMyMenus" />
+
+            <TextView
+                android:id="@+id/homeTvMyMenusDesc"
+                style="@style/TextViewStyle"
+                android:layout_width="0dp"
+                android:layout_marginTop="@dimen/margin_half"
+                android:gravity="center"
+                android:text="@string/homeTvMyMenusDesc"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="@+id/homeTvMyMenus"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="@+id/homeTvMyMenus"
+                app:layout_constraintTop_toBottomOf="@+id/homeVDivMenu" />
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/homeClSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_primary"
+            android:background="?android:selectableItemBackground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeClMyMenus">
+
+            <ImageView
+                android:id="@+id/homeIvSearch"
+                android:layout_width="140dp"
+                android:layout_height="214dp"
+                android:src="@drawable/ic_home_search"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/homeTvSearch"
+                style="@style/TextViewStyle"
+                android:maxLines="1"
+                android:text="@string/search"
+                android:textSize="@dimen/text_size_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/homeIvSearch" />
+
+            <View
+                android:id="@+id/homeVDivSearch"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/margin_primary_2X"
+                android:layout_marginTop="@dimen/margin_half"
+                android:layout_marginEnd="@dimen/margin_primary_2X"
+                android:background="@color/colorAccent"
+                app:layout_constraintEnd_toEndOf="@+id/homeIvSearch"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="@+id/homeIvSearch"
+                app:layout_constraintTop_toBottomOf="@+id/homeTvSearch" />
+
+            <TextView
+                android:id="@+id/homeTvSearchDesc"
+                style="@style/TextViewStyle"
+                android:layout_width="0dp"
+                android:layout_marginTop="@dimen/margin_half"
+                android:gravity="center"
+                android:text="@string/homeTvSearchDesc"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="@+id/homeVDivSearch"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="@+id/homeVDivSearch"
+                app:layout_constraintTop_toBottomOf="@+id/homeVDivSearch" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

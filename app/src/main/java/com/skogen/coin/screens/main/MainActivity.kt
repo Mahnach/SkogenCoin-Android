@@ -8,6 +8,7 @@ import android.view.MenuItem
 import com.skogen.coin.screens.main.presentation.view.MainView
 import com.skogen.coin.screens.main.presentation.presenter.MainPresenter
 import com.skogen.coin.R
+import com.skogen.coin.screens.main.home_screen.fragment.HomeFragment
 import com.skogen.coin.screens.main.menu_screen.fragment.MenuFragment
 import com.skogen.coin.skeleton.activity.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -23,8 +24,7 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView, BottomNavigationVi
     override fun initViews() {
         mainBnv.itemIconTintList = null
         mainBnv.setOnNavigationItemSelectedListener(this)
-        // TODO: change to main screen
-        replaceFragment(R.id.mainContainer, MenuFragment.newInstance(), null)
+        replaceFragment(R.id.mainContainer, HomeFragment.newInstance(), null)
 
     }
 
@@ -34,8 +34,8 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView, BottomNavigationVi
                 supportFragmentManager?.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
             }
             R.id.action_search -> {
-//                supportFragmentManager?.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
-//                replaceFragment(R.id.mainContainer, SearchFragment.newInstance(), null)
+                supportFragmentManager?.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                replaceFragment(R.id.mainContainer, MenuFragment.newInstance(), null)
             }
             R.id.action_profile -> {
 //                supportFragmentManager?.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)

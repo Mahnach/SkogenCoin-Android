@@ -38,13 +38,11 @@ class ExtraInfoPresenter(override val view: ExtraInfoView) : BasePresenter() {
         val builder = MultipartBody.Builder()
         builder.setType(MultipartBody.FORM)
 
-        photo
-        val requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), photo)
-        val body = MultipartBody.Part.createFormData("photo", photo?.name, requestFile)
-
-//        val fbody = RequestBody.create(MediaType.parse("image/*"), photo)
-//        val requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), photo)
-//        val fileData = MultipartBody.Part.createFormData("photo", "photo", requestFile)
+        var body: MultipartBody.Part? = null
+        if (photo != null) {
+            val requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), photo)
+            body = MultipartBody.Part.createFormData("photo", photo?.name, requestFile)
+        }
 
         RetrofitService.getService().performReg(name, surname, phone, email, password, body).enqueue(object : DefaultCallback<UserModel>(view) {
             override fun onResponse(response: Response<UserModel>?) {

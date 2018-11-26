@@ -20,7 +20,7 @@ interface RetrofitApi {
     @POST("profile")
     fun performReg(@Part name: MultipartBody.Part, @Part surname: MultipartBody.Part,
                    @Part phone: MultipartBody.Part, @Part email: MultipartBody.Part,
-                   @Part password: MultipartBody.Part, @Part photo: MultipartBody.Part): Call<UserModel>
+                   @Part password: MultipartBody.Part, @Part photo: MultipartBody.Part?): Call<UserModel>
 
     @POST("login")
     fun performLogin(@Body login: LoginRequest): Call<UserModel>
