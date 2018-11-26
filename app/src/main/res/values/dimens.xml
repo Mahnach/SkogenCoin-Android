@@ -29,6 +29,8 @@
     <dimen name="text_size_xl_large">22sp</dimen>
     <dimen name="text_size_x2_large">24sp</dimen>
     <dimen name="text_size_x3_large">26sp</dimen>
+    <dimen name="text_size_x4_large">28sp</dimen>
+    <dimen name="text_size_x5_large">30sp</dimen>
     <dimen name="text_size_2xx_large">48sp</dimen>
     <!-- endregion -->
 

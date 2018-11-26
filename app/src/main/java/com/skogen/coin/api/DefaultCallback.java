@@ -86,6 +86,7 @@ public abstract class DefaultCallback<T> implements Callback<T> {
             return;
         }
         try {
+            mViewRef.get().hideProgressView();
             Toast.makeText(App.Companion.getContext(), message, Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             e.printStackTrace();

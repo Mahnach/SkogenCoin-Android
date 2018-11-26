@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackground"
+        android:padding="@dimen/margin_primary_2X">
+
+        <TextView
+            android:id="@+id/cardInfoTvUser"
+            style="@style/TextViewStyle"
+            android:layout_marginTop="@dimen/margin_primary_3X"
+            android:gravity="center"
+            android:textSize="@dimen/text_size_x5_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Ola Nordmann" />
+
+        <TextView
+            android:id="@+id/cardInfoTvCardNumber"
+            style="@style/TextViewStyle"
+            android:layout_marginTop="@dimen/margin_primary_3X"
+            android:text="@string/cardInfoTvCardNumber"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardInfoTvUser" />
+
+        <EditText
+            android:id="@+id/cardInfoEtCardNumber"
+            style="@style/EditTextStyle"
+            android:inputType="number"
+            android:digits="0123456789 "
+            android:layout_marginStart="@dimen/margin_primary_4X"
+            android:layout_marginEnd="@dimen/margin_primary_4X"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardInfoTvCardNumber"
+            tools:text="23123" />
+
+        <TextView
+            android:id="@+id/cardInfoTvExpDate"
+            style="@style/TextViewStyle"
+            android:layout_marginTop="@dimen/margin_primary_2X"
+            android:text="@string/cardInfoTvExpDate"
+            app:layout_constraintEnd_toEndOf="@+id/cardInfoEtExpDate"
+            app:layout_constraintStart_toStartOf="@+id/cardInfoEtExpDate"
+            app:layout_constraintTop_toBottomOf="@+id/cardInfoEtCardNumber" />
+
+        <EditText
+            android:id="@+id/cardInfoEtExpDate"
+            style="@style/EditTextStyle"
+            android:inputType="number"
+            android:digits="0123456789 /"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/margin_primary_4X"
+            android:layout_marginEnd="@dimen/margin_primary_4X"
+            app:layout_constraintEnd_toStartOf="@+id/cardInfoEtCVC"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardInfoTvExpDate"
+            tools:text="23123" />
+
+        <TextView
+            android:id="@+id/cardInfoTvCVC"
+            style="@style/TextViewStyle"
+            android:layout_marginTop="@dimen/margin_primary_2X"
+            android:text="@string/cardInfoTvCVC"
+            app:layout_constraintEnd_toEndOf="@+id/cardInfoEtCVC"
+            app:layout_constraintStart_toStartOf="@+id/cardInfoEtCVC"
+            app:layout_constraintTop_toBottomOf="@+id/cardInfoEtCardNumber" />
+
+        <EditText
+            android:id="@+id/cardInfoEtCVC"
+            style="@style/EditTextStyle"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/margin_primary_4X"
+            android:layout_marginEnd="@dimen/margin_primary_4X"
+            android:maxLength="3"
+            android:inputType="numberDecimal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/cardInfoEtExpDate"
+            app:layout_constraintTop_toBottomOf="@+id/cardInfoTvCVC"
+            tools:text="23123" />
+
+        <TextView
+            android:id="@+id/cardInfoTvCardHolder"
+            style="@style/TextViewStyle"
+            android:layout_marginTop="@dimen/margin_primary_2X"
+            android:text="@string/cardInfoTvCardHolder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardInfoEtExpDate" />
+
+        <EditText
+            android:id="@+id/cardInfoEtCardHolder"
+            style="@style/EditTextStyle"
+            android:layout_marginStart="@dimen/margin_primary_4X"
+            android:layout_marginEnd="@dimen/margin_primary_4X"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardInfoTvCardHolder"
+            tools:text="23123" />
+
+        <Button
+            android:id="@+id/cardInfoIvCamera"
+            android:layout_width="32dp"
+            android:layout_height="26dp"
+            android:layout_marginTop="@dimen/margin_primary_2X"
+            android:layout_marginBottom="@dimen/margin_primary_2X"
+            android:background="@drawable/selector_iv_camera"
+            app:layout_constraintBottom_toTopOf="@+id/cardInfoTvRight"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardInfoEtCardHolder" />
+
+        <TextView
+            android:id="@+id/cardInfoTvRight"
+            style="@style/TextViewStyle"
+            android:layout_marginBottom="@dimen/margin_primary_2X"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="@string/cardInfoTvRight"
+            android:textSize="@dimen/text_size_x_large"
+            app:layout_constraintBottom_toTopOf="@+id/cardInfoBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/cardInfoBtn"
+            android:layout_width="66dp"
+            android:layout_height="66dp"
+            android:layout_marginBottom="@dimen/margin_primary_3X"
+            android:background="@drawable/selector_btn_primary_round"
+            android:drawableStart="@drawable/selector_iv_arrow_right_accent"
+            android:enabled="false"
+            android:paddingStart="3dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

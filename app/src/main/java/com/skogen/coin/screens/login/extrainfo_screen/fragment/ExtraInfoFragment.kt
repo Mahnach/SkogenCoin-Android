@@ -1,46 +1,38 @@
 package com.skogen.coin.screens.login.extrainfo_screen.fragment
 
 import android.Manifest
-import android.Manifest.permission.READ_EXTERNAL_STORAGE
-import android.Manifest.permission.WRITE_EXTERNAL_STORAGE
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
-import android.support.v4.app.ActivityCompat.requestPermissions
-import android.support.v4.app.ActivityCompat.startActivityForResult
-import android.support.v4.app.FragmentManager
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
-import android.webkit.WebView.HitTestResult.IMAGE_TYPE
 import android.widget.Toast
 import com.bumptech.glide.Glide
-import com.pixplicity.easyprefs.library.Prefs
-import com.skogen.coin.App.Companion.context
 import com.skogen.coin.R
-import com.skogen.coin.R.id.extraInfoBtn
-import com.skogen.coin.R.id.extraInfoPin
 import com.skogen.coin.models.UserModel
 import com.skogen.coin.screens.login.LoginActivity
 import com.skogen.coin.screens.login.extrainfo_screen.fragment.presentation.presenter.ExtraInfoPresenter
 import com.skogen.coin.screens.login.extrainfo_screen.fragment.presentation.view.ExtraInfoView
 import com.skogen.coin.skeleton.fragment.BaseFragment
-import com.skogen.coin.utils.ImageUtil
 import com.skogen.coin.utils.Validator
 import com.vicpin.krealmextensions.queryFirst
 import kotlinx.android.synthetic.main.fragment_extra_info.*
-import timber.log.Timber
 import android.view.WindowManager
-import com.skogen.coin.screens.login.login_phone_screen.fragment.LoginPhoneFragment
+import com.skogen.coin.screens.login.add_payment_screen.fragment.AddPaymentFragment
+import timber.log.Timber
+import java.io.File
+import java.io.FileOutputStream
 
 
 class ExtraInfoFragment : BaseFragment<LoginActivity, ExtraInfoPresenter>(), ExtraInfoView,
         View.OnClickListener {
 
-    private var bitmapImage: Bitmap? = null
+    private var userPhoto: File? = null
     private var userModel: UserModel? = null
 
     override val layoutId: Int
@@ -65,7 +57,7 @@ class ExtraInfoFragment : BaseFragment<LoginActivity, ExtraInfoPresenter>(), Ext
 
     override fun initViews(rootView: View?) {
         userModel = UserModel().queryFirst()
-        extraInfoTvName.text = getString(R.string.extraInfoTvName, userModel?.name, userModel?.surname)
+        extraInfoTvName.text = getString(R.string.name_placeholder, userModel?.name, userModel?.surname)
         initEt()
         extraInfoBtn.setOnClickListener(this)
         extraInfoCivAvatar.setOnClickListener(this)
@@ -118,7 +110,7 @@ class ExtraInfoFragment : BaseFragment<LoginActivity, ExtraInfoPresenter>(), Ext
 
                     presenter?.saveUser(
                             extraInfoEtPhone.text.toString(), extraInfoEtEmail.text.toString(),
-                            ImageUtil.convert(bitmapImage), extraInfoPin.text.toString()
+                            userPhoto, extraInfoPin.text.toString()
                     )
                 }
                 else -> Unit
@@ -129,8 +121,9 @@ class ExtraInfoFragment : BaseFragment<LoginActivity, ExtraInfoPresenter>(), Ext
     override fun showOkResult() {
         hideProgressView()
         getActivity()?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
-        activity.supportFragmentManager?.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
-        addFragment(R.id.loginContainer, LoginPhoneFragment.newInstance(), null)
+        addFragment(R.id.loginContainer, AddPaymentFragment.newInstance(), null)
+//        activity.supportFragmentManager?.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+//        addFragment(R.id.loginContainer, LoginPhoneFragment.newInstance(), null)
     }
 
     private fun showOrHideBtn() {
@@ -181,14 +174,23 @@ class ExtraInfoFragment : BaseFragment<LoginActivity, ExtraInfoPresenter>(), Ext
                 if (data == null)
                     return
 
-                if (bitmapImage != null) {
-                    bitmapImage?.recycle()
-                }
-
                 val stream = context?.contentResolver?.openInputStream(data.data)
 
-                bitmapImage = BitmapFactory.decodeStream(stream)
-                stream?.close()
+                userPhoto = File(context?.cacheDir, data.data.lastPathSegment+".png")
+                val output = FileOutputStream(userPhoto)
+                stream?.copyTo(output, 4 * 1024)
+
+//                val compressionRatio = 2 //1 == originalImage, 2 = 50% compression, 4=25% compress
+//                try {
+//                    val bitmap = BitmapFactory.decodeFile(userPhoto!!.path)
+//                    bitmap.compress(Bitmap.CompressFormat.JPEG, compressionRatio, FileOutputStream(userPhoto))
+//                } catch (t: Throwable) {
+//                    Log.e("ERROR", "Error compressing file." + t.toString())
+//                    t.printStackTrace()
+//                }
+
+                Timber.e("${userPhoto?.absolutePath}")
+                Timber.e("${userPhoto?.length()}")
 
                 extraInfoCivAvatar.borderColor = resources.getColor(R.color.colorPrimary)
                 Glide.with(this).load(data.data).into(extraInfoCivAvatar)

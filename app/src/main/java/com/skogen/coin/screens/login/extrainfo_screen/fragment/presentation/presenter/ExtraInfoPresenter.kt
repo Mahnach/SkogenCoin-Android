@@ -1,5 +1,6 @@
 package com.skogen.coin.screens.login.extrainfo_screen.fragment.presentation.presenter
 
+import android.net.Uri
 import com.pixplicity.easyprefs.library.Prefs
 import com.skogen.coin.api.DefaultCallback
 import com.skogen.coin.api.RetrofitService
@@ -9,25 +10,22 @@ import com.skogen.coin.skeleton.presentation.BasePresenter
 import com.skogen.coin.utils.PrefsConsts
 import com.vicpin.krealmextensions.queryFirst
 import com.vicpin.krealmextensions.save
-import okhttp3.ResponseBody
-import retrofit2.Call
-import retrofit2.Callback
+import okhttp3.MediaType
 import retrofit2.Response
-import timber.log.Timber
 import okhttp3.MultipartBody
-
-
+import okhttp3.RequestBody
+import java.io.File
 
 class ExtraInfoPresenter(override val view: ExtraInfoView) : BasePresenter() {
 
     fun init() {}
 
-    fun saveUser(phone: String, email: String, photo: String, pin: String) {
+    fun saveUser(phone: String, email: String, photo: File?, pin: String) {
         view.showProgressView()
         var user: UserModel = UserModel().queryFirst()!!
         user.phone = phone
         user.email = email
-        user.photo = photo
+//        user.photo = photo
         user.password = pin
         user.save()
 
@@ -37,7 +35,18 @@ class ExtraInfoPresenter(override val view: ExtraInfoView) : BasePresenter() {
         val email = MultipartBody.Part.createFormData("email", user.email)
         val password = MultipartBody.Part.createFormData("password", user.password!!)
 
-        RetrofitService.getService().performReg(name, surname, phone, email, password).enqueue(object : DefaultCallback<UserModel>(view) {
+        val builder = MultipartBody.Builder()
+        builder.setType(MultipartBody.FORM)
+
+        photo
+        val requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), photo)
+        val body = MultipartBody.Part.createFormData("photo", photo?.name, requestFile)
+
+//        val fbody = RequestBody.create(MediaType.parse("image/*"), photo)
+//        val requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), photo)
+//        val fileData = MultipartBody.Part.createFormData("photo", "photo", requestFile)
+
+        RetrofitService.getService().performReg(name, surname, phone, email, password, body).enqueue(object : DefaultCallback<UserModel>(view) {
             override fun onResponse(response: Response<UserModel>?) {
                 if (response != null && response.isSuccessful && response.body() != null) {
                     var userModel = response.body()!!

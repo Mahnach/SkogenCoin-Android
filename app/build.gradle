@@ -55,6 +55,7 @@ dependencies {
     // Tools
     implementation 'com.pixplicity.easyprefs:library:1.9.0'
     implementation 'com.github.vicpinm:krealmextensions:2.3.0'
+    implementation 'com.redmadrobot:inputmask:4.0.0'
 
     // Views
     implementation 'de.hdodenhof:circleimageview:2.2.0'

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+
+    <TextView
+        android:id="@+id/scanCardTvUser"
+        style="@style/TextViewStyle"
+        android:layout_marginTop="@dimen/margin_primary_3X"
+        android:gravity="center"
+        android:textSize="@dimen/text_size_x5_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Ola Nordmann" />
+
+    <TextView
+        android:id="@+id/scanCardTvDontManually"
+        style="@style/TextViewStyle"
+        android:layout_marginTop="@dimen/margin_primary_4X"
+        android:gravity="center"
+        android:text="@string/scanCardTvDontManually"
+        android:textSize="@dimen/text_size_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scanCardTvUser" />
+
+    <ImageView
+        android:id="@+id/scanCardIvCamera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_primary_2X"
+        android:background="?android:selectableItemBackground"
+        android:padding="@dimen/margin_primary"
+        android:src="@drawable/ic_camera"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scanCardTvDontManually" />
+
+    <TextView
+        style="@style/TextViewStyle"
+        android:layout_marginBottom="@dimen/margin_primary_2X"
+        android:text="@string/scanCardTvSure"
+        android:gravity="center"
+        android:textSize="@dimen/text_size_x_large"
+        app:layout_constraintBottom_toTopOf="@+id/scanCardBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/scanCardBtn"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:background="@drawable/selector_btn_primary_round"
+        android:drawableStart="@drawable/selector_iv_arrow_right_accent"
+        android:layout_marginBottom="@dimen/margin_primary_3X"
+        android:paddingStart="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

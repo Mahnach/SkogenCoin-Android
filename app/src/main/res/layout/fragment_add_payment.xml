@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+
+    <ImageView
+        android:id="@+id/addPaymentLogo"
+        android:layout_width="120dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="@dimen/margin_primary_2X"
+        android:src="@drawable/ic_logo_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/addPaymentTvLater"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addPaymentLogo">
+
+        <TextView
+            android:id="@+id/addPaymentTv"
+            style="@style/TextViewStyle"
+            android:gravity="center"
+            android:text="@string/addPaymentTv"
+            android:textSize="@dimen/text_size_xl_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/addPaymentIvCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_primary_2X"
+            android:src="@drawable/ic_card_visa"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addPaymentTv" />
+
+        <Button
+            android:id="@+id/addPaymentBtnAddCard"
+            style="@style/ButtonStyle"
+            android:layout_marginTop="@dimen/margin_primary_3X"
+            android:text="@string/addCard"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addPaymentIvCard" />
+    </android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/addPaymentTvLater"
+        style="@style/TextViewStyle"
+        android:background="?android:selectableItemBackground"
+        android:padding="@dimen/margin_primary"
+        android:text="@string/addPaymentTvLater"
+        android:textSize="@dimen/text_size_small"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

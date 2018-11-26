@@ -16,7 +16,6 @@
     <!-- /Username screen -->
 
     <!-- Extra info screen -->
-    <string name="extraInfoTvName">%1$s %2$s</string>
     <string name="extraInfoTvPhone">Telefon Nummer (Obligatorisk)</string>
     <string name="extraInfoTvEmail">E-Mail (Valgfritt)</string>
     <string name="extraInfoTvPin">Personlig 4-Sifret Kode</string>
@@ -24,6 +23,14 @@
 
     <string name="loginPinTvNext">Gå Videre</string>
     <string name="loginPhoneTvPhone">Telefon Nummer</string>
+
+    <!-- Add payment & Scan Card screens -->
+    <string name="addPaymentTvLater"><u>Legg til senere</u></string>
+    <string name="addPaymentTv">Ønsker du å legge til en betalingsmetode?</string>
+    <string name="addCard">Legg til kort</string>
+    <string name="scanCardTvDontManually">Du trenger ikke skrive inn kortet manuelt!</string>
+    <string name="scanCardTvSure">Vil du fortsatt være ekstra sikker?</string>
+    <!-- /Add payment & Scan Card screens -->
 
     <!-- Errors -->
     <string name="error_invalid_phone">Ugyldig telefonnummer</string>
@@ -36,6 +43,7 @@
     <string name="error404">Ingen resultater funnet for din forespørsel.</string>
     <!-- /Errors -->
 
+
     <!-- General -->
     <string name="loading">Laster&#8230;</string>
     <string name="home">Hjem</string>
@@ -44,5 +52,11 @@
     <string name="settings">Innstillinger</string>
     <string name="scan">Scan</string>
     <string name="price_placeholder">%1$dKr</string>
+    <string name="name_placeholder">%1$s %2$s</string>
+    <string name="cardInfoTvCardNumber">Kortnummer</string>
+    <string name="cardInfoTvExpDate">Utløpsdato</string>
+    <string name="cardInfoTvCVC">CVC</string>
+    <string name="cardInfoTvCardHolder">Navn På Innehaver</string>
+    <string name="cardInfoTvRight">Ser riktig ut!</string>
     <!-- /General -->
 </resources>
