@@ -5,6 +5,7 @@ import android.os.Handler
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.FragmentManager
 import android.view.MenuItem
+import android.view.View
 import com.skogen.coin.screens.main.presentation.view.MainView
 import com.skogen.coin.screens.main.presentation.presenter.MainPresenter
 import com.skogen.coin.R
@@ -22,10 +23,10 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView, BottomNavigationVi
     }
 
     override fun initViews() {
+        setSupportActionBar(mainToolbar)
         mainBnv.itemIconTintList = null
         mainBnv.setOnNavigationItemSelectedListener(this)
         replaceFragment(R.id.mainContainer, HomeFragment.newInstance(), null)
-
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -35,7 +36,7 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView, BottomNavigationVi
             }
             R.id.action_search -> {
                 supportFragmentManager?.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
-                replaceFragment(R.id.mainContainer, MenuFragment.newInstance(), null)
+                addFragment(R.id.mainContainer, MenuFragment.newInstance(), null)
             }
             R.id.action_profile -> {
 //                supportFragmentManager?.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
