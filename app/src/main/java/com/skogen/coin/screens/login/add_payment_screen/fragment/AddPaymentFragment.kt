@@ -1,19 +1,14 @@
 package com.skogen.coin.screens.login.add_payment_screen.fragment
 
-import android.app.PendingIntent.getActivity
 import android.os.Bundle
-import android.content.Context
-import android.support.v4.app.Fragment
-import android.view.LayoutInflater
+import android.content.Intent
 import android.view.View
-import android.view.ViewGroup
-
 import com.skogen.coin.R
 import com.skogen.coin.screens.login.LoginActivity
 import com.skogen.coin.screens.login.add_payment_screen.fragment.presentation.presenter.AddPaymentPresenter
 import com.skogen.coin.screens.login.add_payment_screen.fragment.presentation.view.AddPaymentView
 import com.skogen.coin.screens.login.scan_card_screen.fragment.ScanCardFragment
-import com.skogen.coin.skeleton.activity.BaseActivity
+import com.skogen.coin.screens.main.MainActivity
 import com.skogen.coin.skeleton.fragment.BaseFragment
 import kotlinx.android.synthetic.main.fragment_add_payment.*
 
@@ -44,7 +39,10 @@ class AddPaymentFragment : BaseFragment<LoginActivity, AddPaymentPresenter>(), A
         v?.let {
             when (v) {
                 addPaymentBtnAddCard -> addFragment(R.id.loginContainer, ScanCardFragment.newInstance(), null)
-                addPaymentTvLater -> {}
+                addPaymentTvLater -> {
+                    startActivity(Intent(activity, MainActivity::class.java))
+                    activity.finish()
+                }
             }
         }
     }

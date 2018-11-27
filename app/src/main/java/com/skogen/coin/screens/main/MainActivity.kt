@@ -1,7 +1,5 @@
 package com.skogen.coin.screens.main
 
-import android.content.Intent
-import android.os.Handler
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.FragmentManager
 import android.view.MenuItem
@@ -10,12 +8,13 @@ import com.skogen.coin.screens.main.presentation.view.MainView
 import com.skogen.coin.screens.main.presentation.presenter.MainPresenter
 import com.skogen.coin.R
 import com.skogen.coin.screens.main.home_screen.fragment.HomeFragment
+import com.skogen.coin.screens.main.meal_info_screen.fragment.MealInfoFragment
 import com.skogen.coin.screens.main.menu_screen.fragment.MenuFragment
+import com.skogen.coin.screens.main.profile_screen.fragment.ProfileFragment
 import com.skogen.coin.skeleton.activity.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : BaseActivity<MainPresenter>(), MainView, BottomNavigationView.OnNavigationItemSelectedListener {
-
+class MainActivity : BaseActivity<MainPresenter>(), MainView, BottomNavigationView.OnNavigationItemSelectedListener, FragmentManager.OnBackStackChangedListener, View.OnClickListener {
     override fun getLayoutId(): Int = R.layout.activity_main
 
     override fun createPresenter(): MainPresenter {
@@ -24,6 +23,9 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView, BottomNavigationVi
 
     override fun initViews() {
         setSupportActionBar(mainToolbar)
+        supportFragmentManager.addOnBackStackChangedListener(this)
+        mainToolbarIv.setOnClickListener(this)
+        mainToolbarIvBack.setOnClickListener(this)
         mainBnv.itemIconTintList = null
         mainBnv.setOnNavigationItemSelectedListener(this)
         replaceFragment(R.id.mainContainer, HomeFragment.newInstance(), null)
@@ -39,7 +41,8 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView, BottomNavigationVi
                 addFragment(R.id.mainContainer, MenuFragment.newInstance(), null)
             }
             R.id.action_profile -> {
-//                supportFragmentManager?.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                supportFragmentManager?.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                addFragment(R.id.mainContainer, ProfileFragment.newInstance(), null)
             }
             R.id.action_settings -> {
 //                supportFragmentManager?.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
@@ -49,5 +52,29 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView, BottomNavigationVi
             }
         }
         return true
+    }
+
+    override fun onClick(v: View?) {
+        v?.let {
+            when(v) {
+                mainToolbarIv -> {}
+                mainToolbarIvBack -> onBackPressed()
+            }
+        }
+    }
+
+
+    override fun onBackStackChanged() {
+        if (supportFragmentManager.findFragmentById(R.id.mainContainer)!!::class.java == MealInfoFragment::class.java) {
+            mainToolbar.visibility = View.VISIBLE
+            mainToolbarIv.visibility = View.INVISIBLE
+            mainToolbarIvBack.visibility = View.VISIBLE
+        } else if (supportFragmentManager.findFragmentById(R.id.mainContainer)!!::class.java == ProfileFragment::class.java){
+            mainToolbar.visibility = View.GONE
+        } else {
+            mainToolbar.visibility = View.VISIBLE
+            mainToolbarIv.visibility = View.VISIBLE
+            mainToolbarIvBack.visibility = View.INVISIBLE
+        }
     }
 }

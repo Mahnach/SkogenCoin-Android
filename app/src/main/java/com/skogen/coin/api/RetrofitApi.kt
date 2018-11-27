@@ -2,6 +2,7 @@ package android.testcurrencies.com.api
 
 import android.util.TypedValue
 import com.skogen.coin.api.requests.LoginRequest
+import com.skogen.coin.models.MenuMealModel
 import com.skogen.coin.models.UserModel
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -25,4 +26,6 @@ interface RetrofitApi {
     @POST("login")
     fun performLogin(@Body login: LoginRequest): Call<UserModel>
 
+    @GET("meal")
+    fun getMealsList(@Header("Authorization") token: String): Call<ArrayList<MenuMealModel>>
 }

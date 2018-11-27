@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shape_bg_meal"
+    android:padding="@dimen/margin_primary_2X">
+
+    <ImageView
+        android:id="@+id/mealInfoIvMeal"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:scaleType="centerCrop"
+        tools:background="@color/colorAccent"
+        app:layout_constraintBottom_toTopOf="@+id/mealInfoCl"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/mealInfoCl"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/margin_primary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/mealInfoBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mealInfoIvMeal">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/mealInfoClSizes"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/margin_primary_3X"
+            android:minWidth="80dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_weight="1">
+
+            <TextView
+                android:id="@+id/mealInfoTvSizes"
+                style="@style/TextViewStyle"
+                android:text="@string/mealInfoTvSizes"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:id="@+id/mealInfoVDivSizes"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/margin_half"
+                android:background="@color/colorAccent"
+                app:layout_constraintEnd_toEndOf="@+id/mealInfoTvSizes"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="@+id/mealInfoTvSizes"
+                app:layout_constraintTop_toBottomOf="@+id/mealInfoTvSizes" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/mealInfoRvSizes"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/margin_half"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mealInfoVDivSizes"
+                app:layout_constraintVertical_weight="1" />
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/mealInfoClPrice"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/mealInfoClTypes"
+            app:layout_constraintStart_toEndOf="@+id/mealInfoClSizes"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_weight="2">
+
+            <TextView
+                android:id="@+id/mealInfoTvName"
+                style="@style/TextViewStyle"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="2"
+                android:textSize="@dimen/text_size_xl_large"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="ØL" />
+
+            <View
+                android:id="@+id/mealInfoVDivPrice"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/margin_primary_2X"
+                android:layout_marginTop="@dimen/margin_half"
+                android:layout_marginEnd="@dimen/margin_primary_2X"
+                android:background="@color/colorAccent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mealInfoTvName" />
+
+            <TextView
+                android:id="@+id/mealInfoTvPrice"
+                style="@style/TextViewStyle"
+                android:layout_marginTop="@dimen/margin_primary"
+                android:text="@string/mealInfoTvPriceDefault"
+                android:textSize="@dimen/text_size_large"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mealInfoVDivPrice" />
+
+
+            <LinearLayout
+                android:id="@+id/mealInfoTvQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_primary_1_5X"
+                android:background="@drawable/shape_bg_stroke_primary_rounded"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/margin_primary"
+                android:paddingTop="@dimen/margin_half"
+                android:paddingEnd="@dimen/margin_primary"
+                android:paddingBottom="@dimen/margin_half"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mealInfoTvPrice">
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:text="@string/mealInfoTvNumber" />
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginStart="@dimen/margin_half"
+                    android:src="@drawable/ic_arrow_down_accent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/mealInfoLlQuantityValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_bg_stroke_primary"
+                android:gravity="center"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@+id/mealInfoTvQuantity"
+                app:layout_constraintStart_toStartOf="@+id/mealInfoTvQuantity"
+                app:layout_constraintTop_toBottomOf="@+id/mealInfoTvQuantity">
+
+                <TextView
+                    android:id="@+id/mealInfoTvQuantityValue"
+                    style="@style/TextViewStyle"
+                    tools:text="1" />
+            </LinearLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/mealInfoClTypes"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/margin_primary_3X"
+            android:minWidth="80dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/mealInfoClPrice"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_weight="1">
+
+            <TextView
+                android:id="@+id/mealInfoTvTypes"
+                style="@style/TextViewStyle"
+                android:text="@string/mealInfoTvTypes"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:id="@+id/mealInfoVDivTypes"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/margin_primary"
+                android:layout_marginTop="@dimen/margin_half"
+                android:layout_marginEnd="@dimen/margin_primary"
+                android:background="@color/colorAccent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mealInfoTvTypes" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/mealInfoRvTypes"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/margin_half"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mealInfoVDivTypes"
+                app:layout_constraintVertical_weight="1" />
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <Button
+        android:id="@+id/mealInfoBtn"
+        style="@style/ButtonStyle"
+        android:text="@string/tvContinue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

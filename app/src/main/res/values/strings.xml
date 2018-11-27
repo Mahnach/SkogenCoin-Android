@@ -46,6 +46,19 @@
     <string name="homeTvSearchDesc">Søk på dine favoritt restauranter og få opp menyen deres slik at du kan vite akkurat hva du vil ha når du kommer dit!</string>
     <!-- /Home screen -->
 
+    <!-- Profile Screen -->
+    <string name="profileTvPhone">Telefon Nummer</string>
+    <string name="profileTvEmail">E-Mail</string>
+    <string name="profileTvWelcome">Velkommen til din nye profil!</string>
+    <!-- /Profile Screen -->
+
+    <!-- Meal Info Screen -->
+    <string name="mealInfoTvSizes">Størrelser</string>
+    <string name="mealInfoTvTypes">Typer</string>
+    <string name="mealInfoTvPriceDefault">-- Kr</string>
+    <string name="mealInfoTvPricePlaceHolder">%1$d Kr</string>
+    <!-- /Meal Info Screen -->
+
     <!-- Errors -->
     <string name="error_invalid_phone">Ugyldig telefonnummer</string>
     <string name="error_invalid_email">Ugyldig epostadresse</string>
@@ -58,7 +71,6 @@
     <string name="error404">Ingen resultater funnet for din forespørsel.</string>
     <!-- /Errors -->
 
-
     <!-- General -->
     <string name="loading">Laster&#8230;</string>
     <string name="home">Hjem</string>
@@ -68,5 +80,8 @@
     <string name="scan">Scan</string>
     <string name="price_placeholder">%1$dKr</string>
     <string name="name_placeholder">%1$s %2$s</string>
+    <string name="logout">Logg ut</string>
+    <string name="mealInfoTvNumber">Antall</string>
+    <string name="tvContinue">Fortsett</string>
     <!-- /General -->
 </resources>

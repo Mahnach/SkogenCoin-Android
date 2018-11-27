@@ -118,7 +118,7 @@ class CardInfoInputFragment : BaseFragment<LoginActivity, CardInfoInputPresenter
     }
 
     override fun showOkResult() {
-        activity.finish()
         startActivity(Intent(activity, MainActivity::class.java))
+        activity.finish()
     }
 }
