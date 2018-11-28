@@ -3,9 +3,12 @@ package com.skogen.coin.screens.main.meal_info_screen.fragment
 import android.os.Bundle
 import android.support.v7.view.ContextThemeWrapper
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.ListPopupWindow
 import android.support.v7.widget.PopupMenu
 import android.view.MenuItem
 import android.view.View
+import android.view.WindowManager
+import android.widget.AdapterView
 import com.bumptech.glide.Glide
 import com.skogen.coin.R
 import com.skogen.coin.models.MenuMealModel
@@ -17,6 +20,8 @@ import com.skogen.coin.screens.main.meal_info_screen.fragment.presentation.view.
 import com.skogen.coin.skeleton.fragment.BaseFragment
 import kotlinx.android.synthetic.main.fragment_meal_info.*
 import timber.log.Timber
+import android.widget.ArrayAdapter
+
 
 class MealInfoFragment : BaseFragment<MainActivity, MealInfoPresenter>(), MealInfoView {
 
@@ -25,6 +30,7 @@ class MealInfoFragment : BaseFragment<MainActivity, MealInfoPresenter>(), MealIn
     lateinit var meal: MenuMealModel
     var pickedSize: String = ""
     var pickedType: String = ""
+    var quantity: Int = 0
 
     override val layoutId: Int
         get() = R.layout.fragment_meal_info
@@ -52,21 +58,40 @@ class MealInfoFragment : BaseFragment<MainActivity, MealInfoPresenter>(), MealIn
         mealInfoTvName.text = meal.name
         initAdapters()
 
-        // TODO: fix popup menu style!!!
-        val wrapper = ContextThemeWrapper(context!!, R.style.PopupMenuQuantityItemStyle)
-        val popupMenu = PopupMenu(wrapper, mealInfoTvQuantity)
+        val popupList : ArrayList<String> = ArrayList()
+        popupList.add("1")
+        popupList.add("2")
+        popupList.add("3")
+        popupList.add("4")
 
-        popupMenu.setOnMenuItemClickListener {
-            Timber.e("picked -> %s", it.title)
-            true
+
+        Timber.e("mealInfoTvQuantity.width -> %s", mealInfoTvQuantity.width)
+        val mListPopupWindow = ListPopupWindow(context!!, null)
+        mListPopupWindow.width = ListPopupWindow.WRAP_CONTENT
+        mListPopupWindow.height = ListPopupWindow.WRAP_CONTENT
+        mListPopupWindow.anchorView = mealInfoTvQuantity
+        mListPopupWindow.setAdapter(ArrayAdapter(context!!,
+                R.layout.item_popup_quantity, popupList))
+
+        mListPopupWindow.setOnDismissListener {
+            if (quantity == 0)
+                mealInfoTvQuantity.setBackgroundResource(R.drawable.shape_bg_stroke_primary_rounded)
         }
-        popupMenu.menu.add("1")
-        popupMenu.menu.add("2")
-        popupMenu.menu.add("3")
-        popupMenu.menu.add("4")
+
+        mListPopupWindow.setOnItemClickListener(object: AdapterView.OnItemClickListener{
+            override fun onItemClick(adapterView: AdapterView<*>?, view: View?, int: Int, long: Long) {
+                quantity = popupList[int].toInt()
+                mealInfoTvQuantityValue.text = quantity.toString()
+                mealInfoTvQuantityValue.visibility = View.VISIBLE
+                updatePrice()
+                mealInfoTvQuantity.setBackgroundResource(R.drawable.shape_bg_stroke_primary_rounded_top)
+                mListPopupWindow.dismiss()
+            }
+        })
 
         mealInfoTvQuantity.setOnClickListener {
-            popupMenu.show()
+            mealInfoTvQuantity.setBackgroundResource(R.drawable.shape_bg_stroke_primary_rounded_top)
+            mListPopupWindow.show()
         }
     }
 
@@ -134,8 +159,13 @@ class MealInfoFragment : BaseFragment<MainActivity, MealInfoPresenter>(), MealIn
         var filterList = meal.prices!!.filter { it.volume == pickedSize && it.type == pickedType }
         if (filterList.isNotEmpty()) {
             for (item in filterList) {
-                Timber.e("Price -> %s", item.price)
-                mealInfoTvPrice.text = getString(R.string.mealInfoTvPricePlaceHolder, item.price)
+                if (quantity == 0) {
+                    quantity = 1
+                    mealInfoTvQuantityValue.text = quantity.toString()
+                    mealInfoTvQuantityValue.visibility = View.VISIBLE
+                    mealInfoTvQuantity.setBackgroundResource(R.drawable.shape_bg_stroke_primary_rounded_top)
+                }
+                mealInfoTvPrice.text = getString(R.string.mealInfoTvPricePlaceHolder, item.price!! * quantity)
             }
         } else mealInfoTvPrice.text = getString(R.string.mealInfoTvPriceDefault)
     }
